@@ -1,0 +1,10 @@
+$white: #ffffff;
+$font-size-14: 14px;
+$font-size-24: 24px;
+$font-size-50: 50px;
+$site-font-family: 'Roboto Mono', monospace;
+
+// move to base.scss
+.fp-table {
+    width: 100vw !important; // allows .row full width
+}
