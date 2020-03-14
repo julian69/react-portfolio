@@ -1,0 +1,119 @@
+@import "../../assets/styles/variables";
+
+// Colors
+$blue:#292929;
+$active: #FF5252;
+$dark-active:darken($active, 20%);
+$grey:#B6B6B6;
+$light-grey:lighten($grey, 15%);
+
+$background:#efefef;
+$field-color:#E8E9EA;
+
+$hover-label-width:18%;
+$placeholder-bumper:1.5%;
+
+@mixin ease($time:333ms, $attr:all, $curve:ease-in-out) {
+    transition: $attr $time $curve;
+}
+
+.contact{
+    .contact__heading {
+        font-size: $font-size-70;
+        font-family: $font-family-roboto;
+    }
+    
+	.contact__form {
+        .contact__field {
+            &:not(.contact--focused) {
+                > label {
+                    width: 100%;
+                    color: map-get($theme-colors, "white");
+                    background: map-get($theme-colors, "dark");
+                }
+            }
+
+            &.contact--focused {
+                > label {
+                    color: white;
+                    background: $active;
+                    width: $hover-label-width;
+                }
+
+                + .contact__icon,
+                + .contact__icon + .contact__icon {
+                    opacity: 0;
+                    font-size: 2.5em;
+                    @include ease(333ms);
+                }
+
+                .contact__inputs-message {
+                    padding-bottom: 100px !important;
+                }
+            }
+
+            > label {
+                font-size: 14px;
+                font-weight: lighter;
+                letter-spacing: 0.075em;
+                @include ease(333ms);
+            }
+            
+	    	.contact__inputs {
+                background: $field-color;
+                padding-left: $hover-label-width + $placeholder-bumper;
+                font-size: 14px;
+                letter-spacing: 0.05em;
+                  
+                &.contact__inputs-message {
+                    height: 55px;
+                    resize: none;
+                    overflow: hidden;
+                    @include ease(333ms);
+
+                    &:focus {
+                        padding-bottom: 100px !important;
+                    }
+                }
+
+                &:focus {
+                    outline:none;
+                }
+            }
+            
+		    &:hover {
+                > label {
+                    width:$hover-label-width;
+                }
+		    }
+        }
+        
+	    .contact__form-btn {
+		    background: $active;
+		    text-transform: uppercase;
+		    padding: 13px 50px;
+		    font-size: 1.4em;
+		    letter-spacing: 0.1em;
+		    opacity: 0.8;
+            @include ease;
+            
+            &.contact__clear-btn {
+                opacity: 0.8;
+                background: #808080;
+                
+                &:disabled {
+                    background: #808080;
+                }
+            }
+    
+			&:hover {
+			    opacity: 1;
+		    }
+
+			&:focus {
+                outline: none;
+                background: $dark-active;
+		    }
+	    }
+	}
+}

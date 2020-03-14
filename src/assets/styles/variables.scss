@@ -1,8 +1,24 @@
-$white: #ffffff;
+$theme-colors: (
+    "dark": #292929,
+    "white": #ffffff,
+    "black": #000000,
+);
+
+// Fonts
 $font-size-14: 14px;
+$font-size-18: 18px;
 $font-size-24: 24px;
 $font-size-50: 50px;
-$site-font-family: 'Roboto Mono', monospace;
+$font-size-70: 70px;
+
+$font-light: 100;
+
+$font-family-roboto: 'Roboto', monospace;
+$font-family-roboto-mono: 'Roboto Mono', monospace;
+
+// Media queries 
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 992px;
 
 // move to base.scss
 .fp-table {

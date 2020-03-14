@@ -1,0 +1,33 @@
+@import "../../assets/styles/variables";
+
+.about {
+    
+    .about__heading {
+        font-size: $font-size-70;
+        font-family: $font-family-roboto;
+    }
+    
+    .about__text-wrapper {
+        > p {
+            font-size: $font-size-14;
+            font-family: $font-family-roboto-mono;
+
+            @media (min-width: $breakpoint-tablet) {
+                font-size: $font-size-18;
+            }
+        }
+    }
+
+    .about__download-link {
+        color: map-get($theme-colors, "black");
+        
+        &:hover {
+            opacity: .7;
+            text-decoration: none;
+        }
+
+        > span {
+            font-size: $font-size-18;
+        }
+    }
+}

@@ -1,7 +1,12 @@
 @import "../../assets/styles/variables";
 
 .App {
-  background-size: cover;
-  font-family: $site-font-family;
-  background: url('../../assets/imgs/julian-desktop.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: $font-family-roboto-mono;
+    background: url('../../assets/imgs/julian-desktop.jpg') no-repeat center center fixed;
+   
+
+    @media (max-width: $breakpoint-tablet) {
+        background: url('../../assets/imgs/julian-tablet.jpg') no-repeat left center fixed;
+    }
 }
