@@ -1,22 +1,24 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Fullpage from '../Fullpage';
 
 import Header from '../Common/Header';
 import Footer from '../Common/Footer';
-import { isIOS } from '../../utils/helpers';
-import ThemeContextProvider from '../../context/ThemeContext';
+import { isIOS, GA } from '../../utils/helpers';
+import { ThemeContext } from '../../context/ThemeContext';
 
 import '../../assets/styles/portfolio-theme.scss';
 import './App.scss';
 
-const App = () => (
-    <div className={ `app portfolio ${isIOS ? 'portfolio__ios' : ''}` }>
-        <ThemeContextProvider>
+const App = () => {
+    const { activeSection } = useContext(ThemeContext);
+    GA(activeSection);
+    return (
+        <div className={ `app portfolio ${isIOS ? 'portfolio__ios' : ''}` }>
             <Header />
             <Fullpage />
             <Footer />
-        </ThemeContextProvider>
-    </div>
-);
+        </div>
+    );
+};
 
 export default App;
