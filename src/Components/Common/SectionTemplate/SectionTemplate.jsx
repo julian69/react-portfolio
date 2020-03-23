@@ -5,7 +5,7 @@ const SectionTemplate = ({ sectionName, sectionInnerClass, isFluid, children }) 
     <div className={ `${sectionName} section` }>
         <div className={ `container${isFluid ? '-fluid' : ''}` }>
             <div className="row">
-                <div className={ `${sectionName}__inner col-12 ${sectionInnerClass} }` }>
+                <div className={ `${sectionName}__inner ${sectionInnerClass}` }>
                     { children }
                 </div>
             </div>
@@ -26,3 +26,6 @@ SectionTemplate.defaultProps = {
 };
 
 export default SectionTemplate;
+
+
+

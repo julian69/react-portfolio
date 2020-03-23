@@ -19,7 +19,7 @@ const Header = () => {
     const [isMenuOpen, setMenuOpen] = useState(false);
     const { activeLang, content, activeSection, updateActiveLang } = useContext(ThemeContext);
     const siteContent = content[activeLang];
-    console.log(activeSection)
+    
     const shouldHeaderHaveBg = activeSection !== SECTIONS.HOME || isMenuOpen;
     
     return (
@@ -44,12 +44,14 @@ const Header = () => {
                                     <NavLink 
                                         href={ `#${key}`}
                                         className={ `${activeSection === key ? 'active' : ''}` }>
-                                        <span className="portfolio-header__crossed-out-line">{ value.name }</span>
+                                        <span className="portfolio-header__crossed-out-line position-relative">
+                                            { value.name }
+                                        </span>
                                     </NavLink>
                                 </NavItem>
                             )) 
                         }
-                        <NavItem className="portfolio-header__langs d-flex align-items-center">
+                        <NavItem className="portfolio-header__langs d-flex align-items-center pt-3 pb-2 mt-2 pt-md-0 pb-md-0 mt-md-0">
                             <Button 
                                 className="ml-0 ml-md-3 p-0 border-0 bg-transparent text-light font-weight-lighter"
                                 onClick={ () => updateActiveLang('EN') }>EN</Button>

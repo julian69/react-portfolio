@@ -5,11 +5,8 @@
         height: 100vh;
         
         h1 {
-            font-size: 20px;
             margin-bottom: 40%;
-            font-weight: $font-light;
-            font-family: $font-family-roboto;
-           
+            
             @media (min-width: $breakpoint-tablet) {
                 font-size: $font-size-50;
             }

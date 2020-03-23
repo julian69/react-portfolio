@@ -3,13 +3,14 @@ import Fullpage from '../Fullpage';
 
 import Header from '../Common/Header';
 import Footer from '../Common/Footer';
+import { isIOS } from '../../utils/helpers';
 import ThemeContextProvider from '../../context/ThemeContext';
 
-import '../../assets/styles/bootstrap-theme.scss';
+import '../../assets/styles/portfolio-theme.scss';
 import './App.scss';
 
 const App = () => (
-    <div className="App">
+    <div className={ `app portfolio ${isIOS ? 'portfolio__ios' : ''}` }>
         <ThemeContextProvider>
             <Header />
             <Fullpage />

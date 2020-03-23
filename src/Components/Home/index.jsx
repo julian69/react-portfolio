@@ -15,7 +15,7 @@ const Home = () => {
             isFluid
             sectionName={ SECTIONS.HOME }
             sectionInnerClass="col-12 d-flex justify-content-end align-items-end text-light">
-            <h1>{ sectionContent.heading }</h1>
+            <h1 className="portfolio-primary-heading">{ sectionContent.heading }</h1>
         </SectionTemplate>
     );
 };

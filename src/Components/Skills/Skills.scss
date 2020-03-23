@@ -1,0 +1,18 @@
+@import "../../assets/styles/mixins";
+@import "../../assets/styles/variables";
+
+.skills {
+    @include sectionScrollEffect('skills');
+    
+    .skills__topics-btn {
+        font-size: $font-size-16;
+
+        button:focus {
+            outline: 0;
+        }
+
+        button:hover {
+            @include opacity-hover;
+        }
+    }
+}

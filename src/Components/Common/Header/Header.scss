@@ -1,25 +1,36 @@
+@import "../../../assets/styles/mixins";
 @import "../../../assets/styles/variables";
+
 $crossed-out-line-transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+$custom-toggler: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+$collapse-border: 1px solid rgba(255, 255, 255, .2);
 
 .portfolio-header {
     font-weight: $font-light;
 
     .navbar {
-        transition: all 0.5s ease;
+        @include section-transition;
     }
 
     .navbar-brand:hover {
         color: map-get($theme-colors, "white") !important; 
     }
 
+    .navbar-toggler {
+        &:focus {
+            outline: 0;
+        }
+
+        .navbar-toggler-icon {
+            background-image: $custom-toggler;
+        }
+    }
+    
     .nav-link {
         color: map-get($theme-colors, "white") !important;    
     }
 
     .portfolio-header__crossed-out-line {
-        cursor: pointer;
-        position: relative;
-
         &:before, 
         &:after {
             content: '';
@@ -27,7 +38,7 @@ $crossed-out-line-transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
             width: 0%;
             height: 1px;
             position: absolute;
-            background: map-get($theme-colors, "white");
+            background: map-get($theme-colors, "white") !important;
         }
     
         &:before {
@@ -48,7 +59,7 @@ $crossed-out-line-transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
     }
     
     .collapse {
-        border-top: 1px solid rgba(255, 255, 255, .2);
+        border-top: $collapse-border;
        
         @media (min-width: $breakpoint-tablet) {
             border: none;
@@ -57,8 +68,8 @@ $crossed-out-line-transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
 
 	.portfolio-header__crossed-out-line:hover:before {
         width: 100%;
-        background: map-get($theme-colors, "white");
         transition: $crossed-out-line-transition;
+        background: map-get($theme-colors, "white");  
 	}
 
 	.portfolio-header__crossed-out-line:hover:after {
@@ -68,11 +79,15 @@ $crossed-out-line-transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
     }
 
     .portfolio-header__langs {
-        font-size: $font-size-14;
+        border-top: $collapse-border;
 
+        @media (min-width: $breakpoint-tablet) {
+            border-top: 0;
+        }
+        
         & > button {
             &:hover {
-                opacity: .7;
+                @include opacity-hover;
             }
 
             &:hover, 

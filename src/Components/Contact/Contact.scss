@@ -1,119 +1,120 @@
+@import "../../assets/styles/mixins";
 @import "../../assets/styles/variables";
+@import "../../assets/styles/animations";
 
-// Colors
-$blue:#292929;
-$active: #FF5252;
-$dark-active:darken($active, 20%);
-$grey:#B6B6B6;
-$light-grey:lighten($grey, 15%);
 
-$background:#efefef;
-$field-color:#E8E9EA;
+$hover-label-width: 22%;
+$placeholder-bumper: 1.5%;
+$hover-label-width-sm: 30%;
 
-$hover-label-width:18%;
-$placeholder-bumper:1.5%;
+.contact {
+    @include sectionScrollEffect('contact');
 
-@mixin ease($time:333ms, $attr:all, $curve:ease-in-out) {
-    transition: $attr $time $curve;
-}
-
-.contact{
-    .contact__heading {
-        font-size: $font-size-70;
-        font-family: $font-family-roboto;
-    }
-    
-	.contact__form {
+    .contact__form {
         .contact__field {
-            &:not(.contact--focused) {
+            &:not(.contact--populated) {
                 > label {
                     width: 100%;
-                    color: map-get($theme-colors, "white");
                     background: map-get($theme-colors, "dark");
                 }
             }
 
-            &.contact--focused {
+            &.contact--populated { 
                 > label {
-                    color: white;
-                    background: $active;
                     width: $hover-label-width;
+                    background: map-get($theme-colors, "red");
                 }
 
                 + .contact__icon,
                 + .contact__icon + .contact__icon {
                     opacity: 0;
-                    font-size: 2.5em;
-                    @include ease(333ms);
+                    @include ease;
                 }
 
                 .contact__inputs-message {
-                    padding-bottom: 100px !important;
+                    @include messageOnFocus;
                 }
             }
 
             > label {
-                font-size: 14px;
-                font-weight: lighter;
-                letter-spacing: 0.075em;
-                @include ease(333ms);
+                color: map-get($theme-colors, "white");
+                letter-spacing: $custom-letter-spacing;
+                @include ease;
             }
             
 	    	.contact__inputs {
-                background: $field-color;
-                padding-left: $hover-label-width + $placeholder-bumper;
-                font-size: 14px;
                 letter-spacing: 0.05em;
-                  
+                background: map-get($theme-colors, "ligth-gray");
+                padding-left: $hover-label-width-sm + $placeholder-bumper;
+            
+                @media (min-width: $breakpoint-tablet) {
+                    padding-left: $hover-label-width + $placeholder-bumper;
+                }
+                
                 &.contact__inputs-message {
-                    height: 55px;
                     resize: none;
-                    overflow: hidden;
-                    @include ease(333ms);
-
-                    &:focus {
-                        padding-bottom: 100px !important;
-                    }
+                    @include ease;
                 }
 
                 &:focus {
-                    outline:none;
+                    outline: none;
+
+                    & + label {
+                        width: $hover-label-width;
+                        background: map-get($theme-colors, "red");
+                    }
                 }
             }
             
 		    &:hover {
                 > label {
-                    width:$hover-label-width;
+                    width: $hover-label-width-sm;
+                    
+                    @media (min-width: $breakpoint-tablet) {
+                        width: $hover-label-width;
+                    }
                 }
 		    }
         }
         
 	    .contact__form-btn {
-		    background: $active;
-		    text-transform: uppercase;
-		    padding: 13px 50px;
-		    font-size: 1.4em;
-		    letter-spacing: 0.1em;
-		    opacity: 0.8;
+            letter-spacing: 0.1em;
+            background: map-get($theme-colors, "red");
             @include ease;
+            @include opacity-hover;
             
             &.contact__clear-btn {
-                opacity: 0.8;
-                background: #808080;
+                background: map-get($theme-colors, "gray");
+                @include opacity-hover;
                 
                 &:disabled {
-                    background: #808080;
+                    background: map-get($theme-colors, "gray");
                 }
             }
     
-			&:hover {
+			&:not([disabled]):hover {
 			    opacity: 1;
 		    }
 
 			&:focus {
                 outline: none;
-                background: $dark-active;
+                background: map-get($theme-colors, "dark-red");
 		    }
 	    }
-	}
+    }
+    
+    .contact__toast {
+        right: 0;
+        bottom: 15px;
+        animation: toastFadein 0.5s, toastFadeout 0.5s 2.5s;
+
+        @media (min-width: $breakpoint-tablet) {
+            right: 15px;
+        }
+    }
+
+    .contact__loader {
+        right: 15px;
+        bottom: 15px;
+    }
 }

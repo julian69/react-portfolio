@@ -1,0 +1,40 @@
+html, body, .app {
+    font-family: $font-family-roboto-mono;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.fp-table {
+    width: 100vw !important; // allows .row full width
+}
+
+.portfolio-primary-heading {
+    font-size: $font-size-24;
+    font-weight: $font-light;
+    font-family: $font-family-roboto;
+
+    @media (min-width: $breakpoint-tablet) {
+        font-size: $font-size-70;
+    }
+}
+
+.portfolio-secondary-heading {
+    @extend .my-3;
+    @extend .mt-md-0; 
+    @extend .mb-md-5;  
+    font-size: $font-size-50;
+    font-family: $font-family-roboto;
+    letter-spacing: $custom-letter-spacing;
+
+    @media (min-width: $breakpoint-tablet) {
+        font-size: $font-size-70;
+    }
+}
