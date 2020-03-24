@@ -4,7 +4,7 @@ import { Button } from 'reactstrap';
 const WorkTemplate = ({ work, slide, onInfoClick }) => (
     <div className="slide" data-anchor={ slide }>
         <div className="col-12 d-flex justify-content-center">  
-            <div> {/* this div fixes ios streching imgs inside flex */}
+            <div className="slide__img-wrapper"> {/* this div fixes ios streching imgs inside flex */}
                 <img 
                     className="img-fluid" 
                     alt={ `${work.title} different devices images` }

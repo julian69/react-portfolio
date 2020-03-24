@@ -17,6 +17,12 @@
             color: map-get($theme-colors, "red");;
         }
     }
+
+    .slide__img-wrapper {
+        @media (min-width: $breakpoint-tablet) {
+            max-width: 50vw;
+        }
+    }
     
     // Resets fullPage arrows' styles
     .fp-controlArrow {
