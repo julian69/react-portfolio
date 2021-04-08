@@ -1,0 +1,9 @@
+@import "../../assets/styles/mixins";
+
+.about {
+    @include sectionScrollEffect('about');
+
+    .about__download-link:hover {
+        @include opacity-hover;
+    }
+}

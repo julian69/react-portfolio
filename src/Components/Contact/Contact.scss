@@ -1,0 +1,120 @@
+@import "../../assets/styles/mixins";
+@import "../../assets/styles/variables";
+@import "../../assets/styles/animations";
+
+
+$hover-label-width: 22%;
+$placeholder-bumper: 1.5%;
+$hover-label-width-sm: 30%;
+
+.contact {
+    @include sectionScrollEffect('contact');
+
+    .contact__form {
+        .contact__field {
+            &:not(.contact--populated) {
+                > label {
+                    width: 100%;
+                    background: map-get($theme-colors, "dark");
+                }
+            }
+
+            &.contact--populated { 
+                > label {
+                    width: $hover-label-width;
+                    background: map-get($theme-colors, "red");
+                }
+
+                + .contact__icon,
+                + .contact__icon + .contact__icon {
+                    opacity: 0;
+                    @include ease;
+                }
+
+                .contact__inputs-message {
+                    @include messageOnFocus;
+                }
+            }
+
+            > label {
+                color: map-get($theme-colors, "white");
+                letter-spacing: $custom-letter-spacing;
+                @include ease;
+            }
+            
+	    	.contact__inputs {
+                letter-spacing: 0.05em;
+                background: map-get($theme-colors, "ligth-gray");
+                padding-left: $hover-label-width-sm + $placeholder-bumper;
+            
+                @media (min-width: $breakpoint-tablet) {
+                    padding-left: $hover-label-width + $placeholder-bumper;
+                }
+                
+                &.contact__inputs-message {
+                    resize: none;
+                    @include ease;
+                }
+
+                &:focus {
+                    outline: none;
+
+                    & + label {
+                        width: $hover-label-width;
+                        background: map-get($theme-colors, "red");
+                    }
+                }
+            }
+            
+		    &:hover {
+                > label {
+                    width: $hover-label-width-sm;
+                    
+                    @media (min-width: $breakpoint-tablet) {
+                        width: $hover-label-width;
+                    }
+                }
+		    }
+        }
+        
+	    .contact__form-btn {
+            letter-spacing: 0.1em;
+            background: map-get($theme-colors, "red");
+            @include ease;
+            @include opacity-hover;
+            
+            &.contact__clear-btn {
+                background: map-get($theme-colors, "gray");
+                @include opacity-hover;
+                
+                &:disabled {
+                    background: map-get($theme-colors, "gray");
+                }
+            }
+    
+			&:not([disabled]):hover {
+			    opacity: 1;
+		    }
+
+			&:focus {
+                outline: none;
+                background: map-get($theme-colors, "dark-red");
+		    }
+	    }
+    }
+    
+    .contact__toast {
+        right: 0;
+        bottom: 15px;
+        animation: toastFadein 0.5s, toastFadeout 0.5s 2.5s;
+
+        @media (min-width: $breakpoint-tablet) {
+            right: 15px;
+        }
+    }
+
+    .contact__loader {
+        right: 15px;
+        bottom: 15px;
+    }
+}

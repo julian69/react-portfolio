@@ -1,0 +1,10 @@
+@import "../../assets/styles/variables";
+
+.app {
+    background-size: cover;
+    background: url('../../assets/imgs/julian-desktop.jpg') no-repeat center center fixed;
+    
+    @media (max-width: $breakpoint-tablet) {
+        background: url('../../assets/imgs/julian-tablet.jpg') no-repeat left center fixed;
+    }
+}

@@ -1,0 +1,13 @@
+@import "../../../assets/styles/mixins";
+@import "../../../assets/styles/variables";
+
+.portfolio__footer {
+    bottom: 0;
+    animation: $section-fadeIn;
+
+    .portfolio-footer__link {
+        &:hover {
+            @include opacity-hover;
+        }
+    }
+}

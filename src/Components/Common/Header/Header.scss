@@ -1,0 +1,101 @@
+@import "../../../assets/styles/mixins";
+@import "../../../assets/styles/variables";
+
+$crossed-out-line-transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+$custom-toggler: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+$collapse-border: 1px solid rgba(255, 255, 255, .2);
+
+.portfolio-header {
+    font-weight: $font-light;
+
+    .navbar {
+        @include section-transition;
+    }
+
+    .navbar-brand:hover {
+        color: map-get($theme-colors, "white") !important; 
+    }
+
+    .navbar-toggler {
+        &:focus {
+            outline: 0;
+        }
+
+        .navbar-toggler-icon {
+            background-image: $custom-toggler;
+        }
+    }
+    
+    .nav-link {
+        color: map-get($theme-colors, "white") !important;    
+    }
+
+    .portfolio-header__crossed-out-line {
+        &:before, 
+        &:after {
+            content: '';
+            top: 50%;
+            width: 0%;
+            height: 1px;
+            position: absolute;
+            background: map-get($theme-colors, "white") !important;
+        }
+    
+        &:before {
+            left: -2.5px;
+        }
+    
+        &:after {
+            right: 2.5px;
+            transition: $crossed-out-line-transition;
+        }
+    }
+    
+    .active {
+		.portfolio-header__crossed-out-line:before {
+		  width: 100%;
+		  transition: $crossed-out-line-transition;
+		}
+    }
+    
+    .collapse {
+        border-top: $collapse-border;
+       
+        @media (min-width: $breakpoint-tablet) {
+            border: none;
+        }
+    }
+
+	.portfolio-header__crossed-out-line:hover:before {
+        width: 100%;
+        transition: $crossed-out-line-transition;
+        background: map-get($theme-colors, "white");  
+	}
+
+	.portfolio-header__crossed-out-line:hover:after {
+        width: 100%;
+        transition: 0s;
+        background: transparent;
+    }
+
+    .portfolio-header__langs {
+        border-top: $collapse-border;
+
+        @media (min-width: $breakpoint-tablet) {
+            border-top: 0;
+        }
+        
+        & > button {
+            &:hover {
+                @include opacity-hover;
+            }
+
+            &:hover, 
+            &:focus, 
+            &:active,
+            &:visited {
+                box-shadow: none;
+            }
+        }
+    }
+}

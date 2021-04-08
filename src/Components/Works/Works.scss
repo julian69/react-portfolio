@@ -1,0 +1,114 @@
+@import "../../assets/styles/mixins";
+@import "../../assets/styles/variables";
+
+.works {
+    @include sectionScrollEffect('works');
+    position:relative;  /* This is important to make the button position relative to the section*/
+
+    .portfolio-secondary-heading {
+        line-height: 1;
+        font-size: $font-size-70;
+
+        @media (min-width: $breakpoint-tablet) {
+            font-size: $font-size-100;
+        }
+
+        span {
+            color: map-get($theme-colors, "red");;
+        }
+    }
+
+    .slide__img-wrapper {
+        @media (min-width: $breakpoint-tablet) {
+            max-width: 50vw;
+        }
+    }
+    
+    // Resets fullPage arrows' styles
+    .fp-controlArrow {
+        border: 0;
+        bottom: 8%;
+        z-index: 10;
+        top: initial;
+        width: initial;
+        height: initial;
+        transform: none;
+        margin-top: initial;
+        transition: ease .3s all;
+        border-color: transparent;
+       
+        &::before {
+            width: 1em;
+            height: 1em;
+            content: '';
+            border-style: solid;
+            display: inline-block;
+            border-width: 0.25em 0.25em 0 0;
+        }
+
+        &.fp-next {
+            right: 30px;
+
+            &:before {
+                transform: rotate(45deg);
+            }
+
+            &:hover {
+                &:hover{
+                    right: 25px;
+                    @include opacity-hover;
+                }
+            }
+        }
+
+        &.fp-prev {
+            left: 30px;
+
+            &:before {
+                transform: rotate(-135deg);
+            }
+
+            &:hover {
+                &:hover{
+                    left: 25px;
+                     @include opacity-hover;
+                }
+            }
+        }
+    }
+}
+
+.portfolio__ios {
+    .slide { // fixes flex issues on ios (.row)
+        display: block !important;
+    }
+
+    .works {
+        .fp-tableCell { // fixes full width on ios
+            width: 100vw;
+        }
+    }
+}
+
+.modal.show {
+    display: flex !important;
+    align-items: center;
+}
+
+.modal-content {
+    border-radius: 0 !important;
+    font-family: $font-family-roboto-mono;
+}
+
+.modal-footer {
+    border: 0 !important;
+}
+
+.work__btn {
+    border-width: 2px !important;
+}
+
+
+
+
+

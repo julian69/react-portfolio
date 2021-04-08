@@ -1,0 +1,27 @@
+@import "./variables";
+
+@mixin opacity-hover() {
+    opacity: .7;
+}
+
+@mixin section-transition() {
+    transition: all 0.5s ease;
+}
+
+@mixin messageOnFocus() {
+    padding-bottom: 100px !important;
+}
+
+@mixin ease($time: 333ms, $attr: all, $curve: ease-in-out) {
+    transition: $attr $time $curve;
+}
+
+@mixin sectionScrollEffect($section) {
+    &.active {
+        .#{$section}__inner {
+            animation: $section-fadeIn;
+        }
+    }
+}
+
+

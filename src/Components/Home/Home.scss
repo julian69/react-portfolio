@@ -1,0 +1,19 @@
+@import "../../assets/styles/variables";
+
+.home {
+     .home__inner {
+        height: 100vh;
+        
+        h1 {
+            margin-bottom: 40%;
+            
+            @media (min-width: $breakpoint-tablet) {
+                font-size: $font-size-50;
+            }
+            
+            @media (min-width: $breakpoint-desktop) {
+                margin-bottom: 15%;
+            }
+        }
+    }
+}
