@@ -19,11 +19,11 @@ const About = () => {
                 { sectionContent.content }
             </div>
             <div className="mt-3 mt-md-5 py-md-3">
-                <a 
-                    target="_blank" 
+                <a
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="about__download-link"
-                    href={ require('../../assets/docs/CV_EN.zip') }>
+                    href={ require('../../assets/docs/CV.pdf') }>
                     <span className="mr-2 text-dark">CV</span>
                     <IoIosCloudDownload size="32" color="#000000" />
                 </a>

@@ -1,38 +1,38 @@
 export const TOPICS = {
-    FRONT_END: 'front-end', 
-    BACK_END: 'back-end', 
+    FRONT_END: 'front-end',
+    BACK_END: 'back-end',
     MISC: 'misc',
 };
 
 export const SKILLS = {
     [TOPICS.FRONT_END]: [
         {
-            label: 'HTML5/CSS3 - 98%',
-            percentage: '98%',
-        },
-        {
             label: 'JS/ES6 - 96%',
             percentage: '96%',
         },
         {
-            label: 'React/Redux - 98%',
+            label: 'React - 96%',
+            percentage: '96%',
+        },
+        {
+            label: 'Redux - 96%',
+            percentage: '96%',
+        },
+        {
+            label: 'GraphQl/Apollo - 90%',
+            percentage: '90%',
+        },
+        {
+            label: 'HTML5/CSS3 - 98%',
             percentage: '98%',
+        },
+        {
+            label: 'Cypress/Mocha/Enzyme - React-testing-library - 95%',
+            percentage: '95%',
         },
         {
             label: 'Angular - 50%',
             percentage: '50%',
-        },
-        {
-            label: 'Wordpress - 80%',
-            percentage: '80%',
-        },
-        {
-            label: 'Webpack/Gulp - 90%',
-            percentage: '90%',
-        },
-        {
-            label: 'Cypress/Mocha/Enzyme - 95%',
-            percentage: '95%',
         },
     ],
     [TOPICS.BACK_END]: [
@@ -51,6 +51,14 @@ export const SKILLS = {
     ],
     [TOPICS.MISC]: [
         {
+            label: 'Git - 90%',
+            percentage: '90%',
+        },
+        {
+            label: 'Agile - 95%',
+            percentage: '95%',
+        },
+        {
             label: 'ARIA - 70%',
             percentage: '70%',
         },
@@ -64,14 +72,6 @@ export const SKILLS = {
         },
         {
             label:'JQuery - 95%',
-            percentage: '95%',
-        },
-        {
-            label: 'Git - 90%',
-            percentage: '90%',
-        },
-        {
-            label: 'Agile - 95%',
             percentage: '95%',
         },
         {

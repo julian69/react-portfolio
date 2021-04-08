@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import { map, capitalize } from 'lodash';
 import React, { useContext, useState } from 'react';
 
 import ProgressLine from "./ProgressLine";
@@ -22,14 +22,14 @@ const Skills = () => {
                 { `${sectionContent.heading}.` }
                 <div className="skills__topics-btn">
                     [
-                        {   
-                            _.map(TOPICS, (topic, index) => ( // index: static values
+                        {
+                            map(TOPICS, (topic, index) => ( // index: static values
                                 <React.Fragment key={ index }>
                                     <button
                                         onClick={ () => setActiveTopic(topic) }
                                         className="bg-transparent border-0 p-0 mr-1">
-                                        { _.capitalize(topic) }
-                                    </button> 
+                                        { capitalize(topic) }
+                                    </button>
                                     { topic !== TOPICS.MISC && <span>/</span> }
                                 </React.Fragment>
                             ))
@@ -45,7 +45,7 @@ const Skills = () => {
                         barBg="#efefef"
                         progresBg="rgba(255, 82, 82, .7)"
                         label={ skill.label }
-                        percentage={ skill.percentage } /> 
+                        percentage={ skill.percentage } />
                 ))
             }
         </SectionTemplate>
